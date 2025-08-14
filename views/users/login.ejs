@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Login</h2>
+
+    <form action="/login" method="POST" novalidate>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input required type="text" name="username" id="username" class="form-control" placeholder="Enter your username">
+            <div class="invalid-feedback">Username is required.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input required type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
+            <div class="invalid-feedback">Password is required.</div>
+        </div>
+
+        <button class="btn btn-dark w-100"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+    </form>
+
+    <p class="mt-3 text-center">Don't have an account? <a href="/register">Sign up</a></p>
+</div>
+
+<script>
+    // Bootstrap form validation
+    (() => {
+        'use strict';
+        const forms = document.querySelectorAll('form');
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>

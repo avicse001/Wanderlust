@@ -1,0 +1,105 @@
+<body>
+    <br>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+
+            <h3>Create a new Listing</h3>
+            
+            <form method="POST" action="/listings" enctype="multipart/form-data" novalidate class="needs-validation">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" placeholder="Enter title" type="text" class="form-control" required>
+                    <div class="invalid-feedback">
+                            Please Enter Valid Title.
+                        </div>
+                        <div class="valid-feedback">
+                            Title looks good.
+                        </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control" placeholder="Enter description" required></textarea>
+                    <div class="invalid-feedback">
+                            Please Enter Valid description.
+                        </div>
+                        <div class="valid-feedback">
+                            Description looks good.
+                        </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image URL (optional)</label>
+                    <input id="imageInput" name="listing[image]" placeholder="Enter image URL" type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageFile" class="form-label">Or Upload Image</label>
+                    <input type="file" name="imageFile" class="form-control" accept="image/*">
+                </div>
+
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" placeholder="Enter price" type="number" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please Enter Valid Price.
+                        </div>
+                        <div class="valid-feedback">
+                            Price looks good.
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" placeholder="Enter country" type="text" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please Enter Valid Country Name.
+                        </div>
+                        <div class="valid-feedback">
+                            Country name looks good.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" placeholder="Enter location" type="text" class="form-control" required>
+                    <div class="invalid-feedback">
+                            Please Enter Valid Location.
+                        </div>
+                        <div class="valid-feedback">
+                            Location looks good.
+                        </div>
+                </div>
+
+                <button class="btn btn-dark">Add</button>
+                <br><br>
+            </form>
+
+            <button onclick="history.back()" class="btn btn-outline-dark">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Image Preview Script -->
+    <script>
+        const input = document.getElementById('imageInput');
+        const preview = document.getElementById('previewImg');
+        input.addEventListener('input', () => {
+            if (input.value) {
+                preview.src = input.value;
+                preview.classList.remove('d-none');
+            } else {
+                preview.classList.add('d-none');
+            }
+        });
+    </script>
+</body>

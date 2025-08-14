@@ -1,0 +1,82 @@
+<body>
+    <br>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+
+            <h3>Edit Listing: <%= listing.title %></h3>
+            <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" 
+                  enctype="multipart/form-data" 
+                  novalidate class="needs-validation">
+
+                <!-- Title -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" placeholder="Enter title" required>
+                    <div class="invalid-feedback">Please Enter Valid Title.</div>
+                    <div class="valid-feedback">Title looks good.</div>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control" placeholder="Enter description" required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Please Enter Valid Description.</div>
+                    <div class="valid-feedback">Description looks good.</div>
+                </div>
+
+                <!-- Image URL -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image Link</label>
+                    <input name="listing[image]" id="imageInput" value="<%= listing.image %>" type="text" class="form-control" placeholder="Enter image URL">
+                    <img id="previewImg" src="<%= listing.image %>" alt="Image Preview" class="img-thumbnail mt-2" style="max-width: 250px;" />
+                    <div class="invalid-feedback">Please Enter Correct URL Link.</div>
+                    <div class="valid-feedback">Ensure image preview works.</div>
+                </div>
+
+                <!-- File Upload -->
+                <div class="mb-3">
+                    <label for="imageFile" class="form-label">Or Upload New Image</label>
+                    <input type="file" name="imageFile" class="form-control" accept="image/*">
+                </div>
+
+                <!-- Price -->
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" placeholder="Enter price" required>
+                        <div class="invalid-feedback">Please Enter Valid Price.</div>
+                        <div class="valid-feedback">Price looks good.</div>
+                    </div>
+
+                    <!-- Country -->
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" placeholder="Enter country" required>
+                        <div class="invalid-feedback">Please Enter Valid Country Name.</div>
+                        <div class="valid-feedback">Country name looks good.</div>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" placeholder="Enter location" required>
+                    <div class="invalid-feedback">Please Enter Valid Location.</div>
+                    <div class="valid-feedback">Location looks good.</div>
+                </div>
+
+                <!-- Submit -->
+                <button class="btn btn-dark edit-btn">Update</button>
+                <br><br>
+            </form>
+
+            <!-- Back Button -->
+            <button onclick="history.back()" class="btn btn-outline-dark">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+
+        </div>
+    </div>
+
+    <br>
