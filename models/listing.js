@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const Review = require("./Review"); // import Review model
+const Review = require("./review"); // import Review model
 
 const listingSchema = new Schema({
     title: {
